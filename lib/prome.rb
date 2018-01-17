@@ -21,7 +21,7 @@ module Prome
       r.histogram(:rails_db_runtime_seconds, "A histogram of the activerecord execution time.")
 
       r.summary(:response_time_summary, "A summary of response time percentiles.")
-      r.summary(:action_response_time_sumamry, "A summary of response time percentiles for individual actions.")
+      r.summary(:action_response_time_summary, "A summary of response time percentiles for individual actions.")
     end
 
     # sidekiq
