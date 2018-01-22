@@ -11,9 +11,12 @@ module Prome
 
       def refresh
         if defined?(::Sidekiq)
-          stats = ::Sidekiq::Stats.new
-          stats.queues.each do |k, v|
-            Prome.get(:sidekiq_jobs_waiting_count).set({queue: k}, v)
+          begin
+            stats = ::Sidekiq::Stats.new
+            stats.queues.each do |k, v|
+              Prome.get(:sidekiq_jobs_waiting_count).set({queue: k}, v)
+            end
+          rescue
           end
         end
       end
